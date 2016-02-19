@@ -7,7 +7,7 @@
 // @match        http://bluecrx.com/category/tampermonkey/
 // @match    http://finnryan.nps.kari.opalsinfo.net/bin/marc21/edit
 // @grant        none
-// @require https://craig.global.ssl.fastly.net/js/mousetrap/mousetrap.min.js?71631
+// @require https://code.jquery.com/jquery-2.2.0.js
 // ==/UserScript==
 /* jshint -W097 */
 'use strict';
@@ -26,9 +26,11 @@
         //ID google "javascript run element's onclick handler"
     }); 
     
-    Mousetrap.bind('+', function() { 
+    $(document).bind('keypress', '+', cmdPanel.saveAndExit());
+    
+    //Mousetrap.bind('+', function() { 
         //document.getElementByID("sfData").className += " mousetrap";
-        cmdPanel.saveAndExit();
-    });
+    //    cmdPanel.saveAndExit();
+    //});
 
 })();
